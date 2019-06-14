@@ -1,0 +1,12 @@
+<h1>Edit Stylist</h1>
+<%= form_for @stylist do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%= f.label :job_title %>
+<%= f.text_field :job_title %>
+<%= f.label :salon %>
+<%= f.collection_select :salon_id, Salon.all, :id, :name %>
+<%= f.submit %>
+<% end %>
+
+<%= link_to "Delete", stylist_path(@stylist), :data => {:confirm => "Are you sure?", :method => "delete"} %>
