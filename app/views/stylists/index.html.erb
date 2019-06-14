@@ -1,0 +1,4 @@
+<h1>Stylists </h1>
+<% @stylists.each do |stylist| %>
+<li><%= link_to stylist.name, stylist %>- <%= stylist.salon.name %></li>
+<% end %>
