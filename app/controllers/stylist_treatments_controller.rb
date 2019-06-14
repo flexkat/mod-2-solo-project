@@ -1,0 +1,2 @@
+class StylistTreatmentsController < ApplicationController
+end

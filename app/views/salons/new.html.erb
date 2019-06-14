@@ -1,0 +1,12 @@
+<h1> New Salon </h1>
+<%= form_for @salon do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%= f.label :opening_hours %>
+<%= f.text_field :opening_hours %><br>
+<%= f.label :address %>
+<%= f.text_area :address %><br>
+<%= f.label :location %>
+<%= f.collection_select :location_id, Location.all, :id, :name %>
+<%= f.submit %>
+<% end %>
