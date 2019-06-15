@@ -1,0 +1,6 @@
+<h1><%= @treatment.name %></h1>
+<h3><%= @treatment.description %></h3>
+<h3><%= "Allow #{@treatment.time} minutes for this treatment" %> </h3> 
+<h3><%= @treatment.price %></h3>
+
+<%= link_to "Edit this treatment", edit_treatment_path %>
