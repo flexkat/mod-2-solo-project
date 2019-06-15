@@ -10,6 +10,8 @@ class StylistsController < ApplicationController
 
   def create
     stylist = Stylist.create stylist_params
+    stylist.stylist_treatments.create(stylist_id: @stylist)
+
     redirect_to stylist
   end
 
@@ -36,6 +38,6 @@ class StylistsController < ApplicationController
   private
 
   def stylist_params
-    params.require(:stylist).permit(:name, :job_title, :salon_id)
+    params.require(:stylist).permit(:name, :job_title, :salon_id, :treatment_ids)
   end
 end

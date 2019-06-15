@@ -10,7 +10,7 @@ class TreatmentsController < ApplicationController
 
   def create
     treatment = Treatment.create treatment_params
-    redirect_to treatment
+    redirect_to treatment_path
   end
 
   def show
@@ -23,7 +23,7 @@ class TreatmentsController < ApplicationController
 
   def update
     treatment = Treatment.update treatment_params
-    redirect_to treatment
+    redirect_to treatment_path
   end
 
   private

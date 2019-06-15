@@ -3,4 +3,16 @@
 <p><%= @salon.address %></p>
 <p><%= @salon.location.name %></p><br>
 
+<h3> Stylists </h3>
+<% @salon.stylists.each do |stylist| %>
+  <li><%= link_to stylist.name, stylist %></li>
+<% end %>
+
+<h3> Treatments </h3>
+<% @salon.salon_treatments.uniq.each do |treatment| %>
+    <li><%= treatment %></li>
+  <% end %>
+
+
+
 <%= link_to "Edit this salon", edit_salon_path %>
