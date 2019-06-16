@@ -9,7 +9,17 @@
 <% end %>
 
 <h3> Treatments </h3>
-<% @salon.salon_treatments.uniq.each do |treatment| %>
+<div>
+  sort by:
+  <% @sort_options.each do |option| %>
+    <%= link_to option, salon_path(sort_by: option) %>
+  <% end %><br>
+  <% @treatments.uniq.each do |treatment| %>
+    <li><%= link_to "#{treatment.name} - £#{treatment.price}", treatment %></li>
+  <% end %>
+</div>  
+<br/><br/><br/><br/><br/>
+<% @treatment_names.uniq.each do |treatment| %>
     <li><%= treatment %></li>
   <% end %>
 

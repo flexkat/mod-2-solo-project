@@ -6,6 +6,9 @@ class SalonsController < ApplicationController
 
   def show
     @salon = Salon.find params[:id]
+    @treatment_names = @salon.salon_treatment_names
+    @treatments = @salon.sort_and_filter params
+    @sort_options = ["Lowest price", "Highest price"]
   end
 
   def new
