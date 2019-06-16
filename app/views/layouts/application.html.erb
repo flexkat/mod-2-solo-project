@@ -16,6 +16,13 @@
     <%= link_to "new stylist", new_stylist_path %>
     <%= link_to "all treatments", treatments_path %>
     <%= link_to "new treatment", new_treatment_path %>
+    <% if flash[:errors] %>
+      <div>
+        <% flash[:errors].each do |error| %>
+          <p><%= error %>
+        <% end %>
+      </div>  
+    <% end %>  
     <%= yield %>
   </body>
 </html>

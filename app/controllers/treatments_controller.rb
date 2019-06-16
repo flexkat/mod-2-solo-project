@@ -10,7 +10,12 @@ class TreatmentsController < ApplicationController
 
   def create
     treatment = Treatment.create treatment_params
-    redirect_to treatment_path
+    if treatment.valid?
+      redirect_to treatment
+    else
+      flash[:errors] = treatment.errors.full_messages
+      redirect_to new_treatment_path
+    end
   end
 
   def show
@@ -22,7 +27,8 @@ class TreatmentsController < ApplicationController
   end
 
   def update
-    treatment = Treatment.update treatment_params
+    treatment = Treatment.find params[:id]
+    treatment.update treatment_params
     redirect_to treatment_path
   end
 

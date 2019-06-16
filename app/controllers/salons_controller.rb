@@ -14,7 +14,12 @@ class SalonsController < ApplicationController
 
   def create
     salon = Salon.create salon_params
-    redirect_to salon
+    if salon.valid?
+      redirect_to salon
+    else
+      flash[:errors] = salon.errors.full_messages
+      redirect_to new_salon_path
+    end
   end
 
   def edit
@@ -22,7 +27,8 @@ class SalonsController < ApplicationController
   end
 
   def update
-    salon = Salon.update salon_params
+    salon = Salon.find params[:id]
+    salon.update salon_params
     redirect_to salon_path(salon)
   end
 
