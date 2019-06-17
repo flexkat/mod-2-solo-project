@@ -8,10 +8,14 @@ class Stylist < ApplicationRecord
   accepts_nested_attributes_for :treatments
 
 
-  def treatment_attributes=(treatment_attributes)
+  def treatments_attributes=(treatment_attributes)
     treatment_attributes.values.each do |treatment_attribute|
-      treatment = Treatment.find_or_create_by(treatment_attribute)
-      self.categories << treatment
+      if treatment_attribute.values.include?("") == false
+        treatment = Treatment.find_or_create_by(treatment_attribute)
+        self.treatments << treatment
+      end
     end
   end
 end
+
+

@@ -1,28 +1,25 @@
-<h1><%= @salon.name %></h1>
-<h3><%= @salon.opening_hours %></h3>
-<p><%= @salon.address %></p>
-<p><%= @salon.location.name %></p><br>
+<div class="container">
+  <h1 class="title is-1"><%= @salon.name %></h1>
+  <h3><%= @salon.opening_hours %></h3>
+  <p><%= @salon.address %></p>
+  <p><%= @salon.location.name %></p><br>
 
-<h3> Stylists </h3>
-<% @salon.stylists.each do |stylist| %>
-  <li><%= link_to stylist.name, stylist %></li>
-<% end %>
-
-<h3> Treatments </h3>
-<div>
-  sort by:
-  <% @sort_options.each do |option| %>
-    <%= link_to option, salon_path(sort_by: option) %>
-  <% end %><br>
-  <% @treatments.uniq.each do |treatment| %>
-    <li><%= link_to "#{treatment.name} - £#{treatment.price}", treatment %></li>
+  <h3> Stylists </h3>
+  <% @salon.stylists.each do |stylist| %>
+    <li><%= link_to stylist.name, stylist %></li>
   <% end %>
+  <br>
+  <h3> Treatments </h3>
+  <div>
+    sort by:
+    <% @sort_options.each do |option| %>
+      <%= link_to option, salon_path(sort_by: option) %>
+    <% end %><br>
+    <% @treatments.uniq.each do |treatment| %>
+      <li><%= link_to "#{treatment.name} - £#{treatment.price}", treatment %></li>
+    <% end %>
+  </div>  
+  <br>
+  <br>
+  <%= link_to "Edit this salon", edit_salon_path %>
 </div>  
-<br/><br/><br/><br/><br/>
-<% @treatment_names.uniq.each do |treatment| %>
-    <li><%= treatment %></li>
-  <% end %>
-
-
-
-<%= link_to "Edit this salon", edit_salon_path %>

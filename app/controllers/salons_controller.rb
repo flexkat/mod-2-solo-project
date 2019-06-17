@@ -1,13 +1,14 @@
 class SalonsController < ApplicationController
 
   def index
-    @salons = Salon.all
+    @salons = Salon.location_filter params
+    @locations = Location.all
   end
 
   def show
     @salon = Salon.find params[:id]
     @treatment_names = @salon.salon_treatment_names
-    @treatments = @salon.sort_and_filter params
+    @treatments = @salon.price_sort params
     @sort_options = ["Lowest price", "Highest price"]
   end
 

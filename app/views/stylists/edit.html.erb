@@ -7,7 +7,12 @@
 <%= f.label :salon %>
 <%= f.collection_select :salon_id, Salon.all, :id, :name %>
 <%= f.collection_check_boxes :treatment_ids, Treatment.all, :id, :name %><br>
-
+<%= f.fields_for :treatments, @stylist.treatments.build do |treatments_fields| %>
+  <%= treatments_fields.text_field :name %>
+  <%= treatments_fields.text_field :description %>
+  <%= treatments_fields.number_field :price %>
+  <%= treatments_fields.number_field :time %>
+<% end %>
 <%= f.submit %>
 <% end %>
 
