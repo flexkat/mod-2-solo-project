@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user/name'
+  get 'user/email'
+  get 'user/password_digest'
   resources :services
   resources :treatment_categories
   resources :stylist_treatments
