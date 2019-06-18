@@ -27,6 +27,12 @@
         <%= f.label "Or add a new treatment", class:"label" %>
         <%= f.fields_for :treatments, @stylist.treatments.build do |treatments_fields| %>
           <div class="field">
+            <%= f.label :service, class:"label" %>
+            <div class="select">
+              <%= treatments_fields.collection_select :service_id, Service.all, :id, :name %>
+            </div>
+          </div>  
+          <div class="field">
             <%= f.label :name, class:"label" %>
             <%= treatments_fields.text_field :name, class:"input" %>
           </div>  

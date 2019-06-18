@@ -3,6 +3,12 @@
     <h1 class="title is-1">New Treatment</h1>
     <%= form_for @treatment do |f| %>
       <div class="field">
+        <%= f.label :service, class:"label" %>
+        <div class="select">
+          <%= f.collection_select :service_id, Service.all, :id, :name %>
+        </div>
+      </div>  
+      <div class="field">
         <%= f.label :name, class:"label" %>
         <%= f.text_field :name, class:"input" %>
       </div>  

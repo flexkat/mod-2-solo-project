@@ -35,7 +35,7 @@ class TreatmentsController < ApplicationController
   private
 
   def treatment_params
-    params.require(:treatment).permit(:name, :description, :price, :time)
+    params.require(:treatment).permit(:name, :description, :price, :time, :service_id)
   end
 
 end

@@ -42,7 +42,7 @@ class StylistsController < ApplicationController
   private
 
   def first_round_params
-    params.require(:stylist).permit(:name, :job_title, :salon_id, :treatment_ids => [], treatments_attributes: [:name, :description, :price, :time])
+    params.require(:stylist).permit(:name, :job_title, :salon_id, :treatment_ids => [], treatments_attributes: [:name, :description, :price, :time, :service_id])
   end
 
   def stylist_params

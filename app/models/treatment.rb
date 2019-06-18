@@ -8,6 +8,6 @@ class Treatment < ApplicationRecord
 
 
   has_many :stylist_treatments
+  belongs_to :service
 
-  
 end
