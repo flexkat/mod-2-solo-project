@@ -1,4 +1,14 @@
-<h1>Salons:</h1> 
+<h1 class="title is-1" >Salons:</h1> 
+<div>
+  <h3 class="title is-5" >View only: 
+  <% @locations.each do |location| %>
+    <%= link_to location.name, salons_path(location_id: location.id, sort_by: params[:sort_by]) %>
+  <% end %>
+  <%= link_to 'all', salons_path %></h3>
+</div>
+<br>
+
+
 <% @salons.each do |salon| %>
-<li><%= link_to salon.name, salon %></li>
+  <li><%= link_to salon.name, salon %></li>
 <% end %>

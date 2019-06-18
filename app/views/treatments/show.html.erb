@@ -1,0 +1,7 @@
+<h1 class="title is-1" ><%= @treatment.name %></h1> 
+<h3 class="title is-4"><%= @treatment.description %></h3>
+<h3 class="title is-5">£<%= @treatment.price %></h3>
+<h3 class="title is-5"><%= "Allow #{@treatment.time} minutes for this treatment" %> </h3> 
+
+
+<%= link_to "Edit this treatment", edit_treatment_path, class:"button is-link is-outlined" %>

@@ -1,0 +1,4 @@
+<h1 class="title is-1" >Treatments:</h1> 
+<% @treatments.each do |treatment| %>
+  <li><%= link_to treatment.name, treatment %></li>
+<% end %>

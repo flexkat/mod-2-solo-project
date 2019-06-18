@@ -1,11 +1,15 @@
 class SalonsController < ApplicationController
 
   def index
-    @salons = Salon.all
+    @salons = Salon.location_filter params
+    @locations = Location.all
   end
 
   def show
     @salon = Salon.find params[:id]
+    @treatment_names = @salon.salon_treatment_names
+    @treatments = @salon.price_sort params
+    @sort_options = ["Lowest price", "Highest price"]
   end
 
   def new
@@ -14,7 +18,12 @@ class SalonsController < ApplicationController
 
   def create
     salon = Salon.create salon_params
-    redirect_to salon
+    if salon.valid?
+      redirect_to salon
+    else
+      flash[:errors] = salon.errors.full_messages
+      redirect_to new_salon_path
+    end
   end
 
   def edit
@@ -22,7 +31,8 @@ class SalonsController < ApplicationController
   end
 
   def update
-    salon = Salon.update salon_params
+    salon = Salon.find params[:id]
+    salon.update salon_params
     redirect_to salon_path(salon)
   end
 

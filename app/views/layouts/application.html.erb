@@ -6,13 +6,40 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= link_to "all salons", salons_path %>
-    <%= link_to "new salon", new_salon_path %>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="<%= salons_path %>">
+          <img src="/images/logo_image.png" alt="Cartoon hair brush" width="55px">
+        </a>
+
+        <%= link_to "all salons", salons_path, class:"navbar-item" %>
+        <%= link_to "new salon", new_salon_path, class:"navbar-item" %>
+        <%= link_to "all stylists", stylists_path, class:"navbar-item" %>
+        <%= link_to "new stylist", new_stylist_path, class:"navbar-item" %>
+        <%= link_to "all treatments", treatments_path, class:"navbar-item" %>
+        <%= link_to "new treatment", new_treatment_path, class:"navbar-item" %>
+      </div>
+    </nav>
     
-    <%= yield %>
+    <div class="container" style="padding: 10px;">
+      
+      <% if flash[:errors] %>
+        <div style="margin-bottom: 10px;">
+          <% flash[:errors].each do |error| %>
+            <div class="notification is-danger" style="padding: 7px; margin-bottom: 5px;">
+              <%= error %>
+            </div>
+          <% end %>
+        </div>  
+      <% end %>  
+
+      <%= yield %>
+
+    </div>
   </body>
 </html>

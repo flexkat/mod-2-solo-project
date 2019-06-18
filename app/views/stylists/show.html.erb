@@ -1,0 +1,11 @@
+<h1 class="title is-1" ><%= @stylist.name %></h1>
+<h2 class="title is-3"><%= @stylist.job_title %> at <%= link_to @stylist.salon.name, salon_path(@stylist.salon) %></h2>
+<div>
+  <h3 class="title is-5"><%= "Treatments available with #{@stylist.name}" %></h3>
+  <% @stylist.treatments.each do |treat| %>
+    <p><%= link_to treat.name, treatment_path(treat) %></p>
+  <% end %>
+</div>  
+<br>
+
+<%= link_to "Edit this stylist", edit_stylist_path, class:"button is-link is-outlined" %>
