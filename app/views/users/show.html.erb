@@ -1,5 +1,5 @@
 <h1 class="title is-1"><%= "Welcome back #{@user.name}" %></h1>
 <h3 class="title is-4"> Your appointments </h3>
 <% @user.appointments.each do |appointment| %>
-  <li><%= appointment.stylist.name %></li>
+  <li><%= "#{appointment.stylist.name} on #{appointment.date} at #{appointment.time}" %></li>
 <% end %>  

@@ -6,13 +6,18 @@ class AppointmentsController < ApplicationController
 
   def create
     appointment = Appointment.create appointment_params
-    redirect_to user_path(@user)
+    if appointment.valid? == true
+      redirect_to user_path(@user)
+    else   
+      flash[:errors] = appointment.errors.full_messages
+      redirect_to new_appointment_path
+    end
   end
 
   private
 
   def appointment_params
-    params.require(:appointment).permit(:user_id, :stylist_id)
+    params.require(:appointment).permit(:user_id, :stylist_id, :date, :time)
   end
 
 end
