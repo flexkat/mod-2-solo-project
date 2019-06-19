@@ -12,7 +12,6 @@ class Appointment < ApplicationRecord
 
   def available_times
     clashing_appt = self.stylist.appointments.find { |appt| appt.date == self.date && appt.time == self.time }
-    byebug
     if clashing_appt
       errors.add(:"stylist #{self.stylist.name}", 'is not available at that time')
     end

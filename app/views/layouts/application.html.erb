@@ -16,13 +16,39 @@
         <a class="navbar-item" href="<%= salons_path %>">
           <img src="/images/logo_image.png" alt="Cartoon hair brush" width="55px">
         </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Salon
+          </a>
 
-        <%= link_to "all salons", salons_path, class:"navbar-item" %>
-        <%= link_to "new salon", new_salon_path, class:"navbar-item" %>
-        <%= link_to "all stylists", stylists_path, class:"navbar-item" %>
-        <%= link_to "new stylist", new_stylist_path, class:"navbar-item" %>
-        <%= link_to "all treatments", treatments_path, class:"navbar-item" %>
-        <%= link_to "new treatment", new_treatment_path, class:"navbar-item" %>
+          <div class="navbar-dropdown">
+            <%= link_to "all salons", salons_path, class:"navbar-item" %>
+            <%= link_to "new salon", new_salon_path, class:"navbar-item" %>
+          </div>
+        </div> 
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Stylist
+          </a>
+
+          <div class="navbar-dropdown">
+            <%= link_to "all stylists", stylists_path, class:"navbar-item" %>
+            <%= link_to "new stylist", new_stylist_path, class:"navbar-item" %>
+          </div>
+        </div>    
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Treatment
+          </a>
+
+          <div class="navbar-dropdown">
+            <%= link_to "all treatments", treatments_path, class:"navbar-item" %>
+            <%= link_to "new treatment", new_treatment_path, class:"navbar-item" %>
+          </div>
+        </div>
+        
         <% if logged_in? == true %>
           <%= link_to "logout", logout_path, method: :delete, class:"navbar-item" %>
           <%= link_to "my account", user_path(@user), class:"navbar-item" %>
