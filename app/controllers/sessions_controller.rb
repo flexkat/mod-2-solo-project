@@ -1,19 +1,20 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      log_in user
+      session[:user_id] = user.id
       redirect_to user_path(user)
     else 
-      render 'new'
+      redirect_to login_path
     end
   end
 
   def destroy
-    log_out
-    redirect_to "new"
+    session.delete(:user_id)
+    redirect_to salons_path
   end 
 end

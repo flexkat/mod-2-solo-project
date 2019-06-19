@@ -3,6 +3,7 @@ class Stylist < ApplicationRecord
   validates :job_title, presence: true
 
   belongs_to :salon
+  has_many :appointments
   has_many :stylist_treatments
   has_many :treatments, through: :stylist_treatments
   accepts_nested_attributes_for :treatments

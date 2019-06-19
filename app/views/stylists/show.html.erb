@@ -8,4 +8,12 @@
 </div>  
 <br>
 
+<% if logged_in? == true %>
+  <%= link_to "Create appointment", new_appointment_path(stylist_id: @stylist.id, user_id: @user.id), class:"button is-primary is-outlined" %> 
+<% else %> 
+<h3>Log in to make an appointment with <%=@stylist.name %></h3> 
+<% end %>
+<br>
+<br>
+
 <%= link_to "Edit this stylist", edit_stylist_path, class:"button is-link is-outlined" %>
