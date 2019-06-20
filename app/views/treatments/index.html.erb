@@ -1,4 +1,13 @@
 <h1 class="title is-1" >Treatments:</h1> 
+<h3 class="title is-4" >Filter by:</h3>
+<div>
+  <% @services.each do |service| %>
+    <%= link_to service.name, treatments_path(service_id: service.id, sort_by: params[:sort_by]) %>
+  <% end %>
+  <%= link_to 'all', treatments_path %></h3>
+</div>
+<br>
+
 <% @treatments.each do |treatment| %>
   <li><%= link_to treatment.name, treatment %></li>
 <% end %>
