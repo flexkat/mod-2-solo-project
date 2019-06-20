@@ -3,5 +3,10 @@
 <h3 class="title is-5">£<%= @treatment.price %></h3>
 <h3 class="title is-5"><%= "Allow #{@treatment.time} minutes for this treatment" %> </h3> 
 
+<h4 class="title is-6">Treatment available at:</h4>
+<% @treatment.treatment_salons.each do |salon| %>
+  <li><%= salon.name %></li>
+<% end %> 
+<br>
 
 <%= link_to "Edit this treatment", edit_treatment_path, class:"button is-link is-outlined" %>
