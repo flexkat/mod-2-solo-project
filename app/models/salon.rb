@@ -5,24 +5,11 @@ class Salon < ApplicationRecord
 
   belongs_to :location
   has_many :stylists
-  has_many :treatments,
-  :through => :stylists, :source => :stylist_treatments
-
+  has_many :treatments, -> { distinct }, through: :stylists
   
-  def salon_treatments
-    services = [] 
-    self.stylists.each do |stylist|
-      stylist.treatments.each do |i|
-        if i.valid? == true
-          services << i
-        end
-      end
-    end 
-    services.flatten
-  end 
 
   def salon_treatment_names
-    self.salon_treatments.map do |treatment|
+    self.treatments.map do |treatment|
       treatment.name
     end 
   end

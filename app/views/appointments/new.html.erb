@@ -12,6 +12,13 @@
         <%= f.text_field :user_id, value:params[:user_id], class:"input" %>
       </div>
       <div class="field">
+        <%= f.label :treatment_id, class:"label" %>
+        <div class="select">
+          <%= f.collection_select :treatment_id, Treatment.all, :id, :name %>
+        </div>  
+      </div>  
+
+      <div class="field">
         <%= f.label :date, class:"label" %>  
         <%= f.date_field :date, class:"input" %>
       </div>

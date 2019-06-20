@@ -27,5 +27,9 @@
       <br>
       <%= f.submit "Update Treatment", class:"button is-primary is-outlined" %>    
     <% end %>
+    <br>
+    <div>
+      <%= link_to "Delete", treatment_path(@treatment), :data => {:confirm => "Are you sure?", :method => "delete"}, class:"button is-danger is-outlined" %>
+    </div>  
   </div>
 </div>  

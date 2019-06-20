@@ -32,6 +32,12 @@ class TreatmentsController < ApplicationController
     redirect_to treatment_path
   end
 
+  def destroy
+    treatment = Treatment.find params[:id]
+    treatment.destroy
+    redirect_to treatments_path
+  end
+
   private
 
   def treatment_params

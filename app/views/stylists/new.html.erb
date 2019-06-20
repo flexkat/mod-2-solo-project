@@ -23,6 +23,35 @@
           <%= b.label class:"checkbox" %><br>
         <% end %><br>
       </div>  
+
+      <div class="field">
+        <%= f.label "Or add a new treatment", class:"label" %>
+        <%= f.fields_for :treatments, @stylist.treatments.build do |treatments_fields| %>
+          <div class="field">
+            <%= f.label :service, class:"label" %>
+            <div class="select">
+              <%= treatments_fields.collection_select :service_id, Service.all, :id, :name %>
+            </div>
+          </div>  
+          <div class="field">
+            <%= f.label :name, class:"label" %>
+            <%= treatments_fields.text_field :name, class:"input" %>
+          </div>  
+          <div class="field">
+            <%= f.label :description, class:"label" %>
+            <%= treatments_fields.text_field :description, class:"input" %>
+          </div>
+          <div class="field">
+            <%= f.label :price, class:"label" %>
+            <%= treatments_fields.number_field :price, class:"input" %>
+          </div>
+          <div class="field">
+            <%= f.label :time, class:"label" %>
+            <%= treatments_fields.number_field :time, class:"input" %>
+          </div>
+        <% end %>
+      </div>
+      
       <%= f.submit "Create Stylist", class:"button is-primary is-outlined" %>
     <% end %>
   </div>
