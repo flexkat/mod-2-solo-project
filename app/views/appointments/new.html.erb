@@ -2,19 +2,14 @@
   <div class="column">
     <%= form_for @appointment do |f| %>
       <div class="field">
-        <%= f.label :stylist_id, class:"label" %>
-        <div class="select">
-          <%= f.collection_select :stylist_id, Stylist.all, :id, :name, selected: params[:stylist_id] %>
-        </div>
+        <%= f.label "You are booking in with #{@stylist.name.capitalize}", class:"label" %>
+        <%= f.hidden_field :stylist_id, :value => params[:stylist_id] %>
       </div>
-      <div class="field">
-        <%= f.label :user_id, class:"label" %>  
-        <%= f.text_field :user_id, value:params[:user_id], class:"input" %>
-      </div>
+        <%= f.hidden_field :user_id, :value => params[:user_id] %>
       <div class="field">
         <%= f.label :treatment_id, class:"label" %>
         <div class="select">
-          <%= f.collection_select :treatment_id, Treatment.all, :id, :name %>
+          <%= f.collection_select :treatment_id, @treatments.each, :id, :name %>
         </div>  
       </div>  
 

@@ -20,7 +20,7 @@ class Salon < ApplicationRecord
   end
 
   def price_sort params
-    treatments = self.salon_treatments
+    treatments = self.treatments
     if params[:sort_by] && params[:sort_by] == "Lowest price"
       treatments.sort_by(&:price)
     else
@@ -28,3 +28,4 @@ class Salon < ApplicationRecord
     end
   end
 end
+

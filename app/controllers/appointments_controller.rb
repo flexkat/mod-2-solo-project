@@ -2,6 +2,9 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @stylist = Stylist.find_by(id: params[:stylist_id])
+    @treatments = @stylist.treatments
+    @user = params[:user_id]
   end
 
   def create

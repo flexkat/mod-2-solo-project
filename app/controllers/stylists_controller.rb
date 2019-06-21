@@ -11,7 +11,7 @@ class StylistsController < ApplicationController
   def create
     stylist = Stylist.create stylist_params
     if stylist.valid?
-      stylist.stylist_treatments.create(stylist_id: @stylist)
+      stylist.stylist_treatments.create(stylist_id: stylist.id)
       redirect_to stylist
     else
       flash[:errors] = stylist.errors.full_messages

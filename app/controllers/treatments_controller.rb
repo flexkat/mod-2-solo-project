@@ -1,7 +1,9 @@
 class TreatmentsController < ApplicationController
 
   def index
-    @treatments = Treatment.all
+    @treatments = Treatment.filter_by_service params
+    @services = Service.all
+
   end
 
   def new
