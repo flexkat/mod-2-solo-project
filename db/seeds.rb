@@ -14,11 +14,15 @@ Salon.create(name:"Loulous Hair Studio", address:"41 Victoria Street", opening_h
 Salon.create(name: "The Sample Room", address:"8 Lake Street", opening_hours: "Tuesday - Friday 9am - 8:30pm, Saturday 9am - 3pm", location_id: 1)
 Salon.create(name: "John's Barber", address:"23 Shakespeare Street", opening_hours: "Monday - Friday 9am - 6:30pm, Saturday 9am - 1pm", location_id: 2)
 
-Stylist.create(name: "Briar", job_title: "Assistant Stylist / Colourist", salon_id: 2)
-Stylist.create(name: "Linda", job_title: "Stylist", salon_id: 2)
-Stylist.create(name: "Janet", job_title: "Senior Stylist", salon_id: 1)
-Stylist.create(name: "Victoria", job_title: "Colour Technician", salon_id: 1)
-Stylist.create(name: "John", job_title: "Barber", salon_id: 3)
+Role.create(title: "Stylist")
+Role.create(title: "Colour Technician")
+Role.create(title: "Barber")
+
+Stylist.create(name: "Briar", role_id: 3, salon_id: 2)
+Stylist.create(name: "Linda", role_id: 1 , salon_id: 2)
+Stylist.create(name: "Janet", role_id: 2, salon_id: 1)
+Stylist.create(name: "Victoria", role_id: 2, salon_id: 1)
+Stylist.create(name: "John", role_id: 2, salon_id: 3)
 
 Service.create(name:"Haircut")
 Service.create(name:"Hair Colouring")

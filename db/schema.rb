@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_145937) do
+ActiveRecord::Schema.define(version: 2019_06_21_092330) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 2019_06_19_145937) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,10 +63,11 @@ ActiveRecord::Schema.define(version: 2019_06_19_145937) do
 
   create_table "stylists", force: :cascade do |t|
     t.string "name"
-    t.string "job_title"
     t.integer "salon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role_id"
+    t.index ["role_id"], name: "index_stylists_on_role_id"
     t.index ["salon_id"], name: "index_stylists_on_salon_id"
   end
 

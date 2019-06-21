@@ -7,8 +7,10 @@
         <%= f.text_field :name, class:"input" %>
       </div>  
       <div class="field">
-        <%= f.label :job_title, class:"label" %>
-        <%= f.text_field :job_title, class:"input" %>
+        <%= f.label :role_id, class:"label" %>
+        <div class="select">
+          <%= f.collection_select :role_id, Role.all, :id, :title %>
+        </div>      
       </div>  
       <div class="field">
         <%= f.label :salon, class:"label" %>

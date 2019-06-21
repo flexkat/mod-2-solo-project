@@ -1,8 +1,8 @@
 class Stylist < ApplicationRecord
   validates :name, presence: true
-  validates :job_title, presence: true
 
   belongs_to :salon
+  belongs_to :role
   has_many :appointments
   has_many :stylist_treatments
   has_many :treatments, through: :stylist_treatments
